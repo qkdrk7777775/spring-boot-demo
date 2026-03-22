@@ -26,8 +26,8 @@ jobs:
 
       - name: Push to Docker Hub
         run: |
-          echo "${{secrets.DOCKER_PASS}}" | docker login -u "${{secrets.DOCKER_USER}}" --password-stdin
-          docker push ${{secrets.DOCKER_USER}}/myapp:${{github.sha}}
-          docker tag ${{secrets.DOCKER_USER}}/myapp:${{github.sha}}
-          ${{secrets.DOCKER_USER}}/myapp:latest
-            docker push ${{secrets.DOCKER_USER}}/myapp:latest
+         echo "${{ secrets.DOCKER_PASS }}" | docker login -u "${{ secrets.DOCKER_USER }}" --password-stdin
+         docker build -t ${{ secrets.DOCKER_USER }}/myapp:${{ github.sha }} .
+         docker push ${{ secrets.DOCKER_USER }}/myapp:${{ github.sha }}                                                         
+         docker tag ${{ secrets.DOCKER_USER }}/myapp:${{ github.sha }} ${{ secrets.DOCKER_USER }}/myapp:latest
+         docker push ${{ secrets.DOCKER_USER }}/myapp:latest
