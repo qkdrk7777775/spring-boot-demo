@@ -15,12 +15,9 @@ jobs:
         with:
           java-version: "17"
           distribution: "temurin"
-<<<<<<< HEAD
-=======
 
       - name: Build with Maven 
         run: mvn -B package --file pom.xml
 
       - name: Build Docker image
         run: docker build -t myapp:${{github.sha}}
->>>>>>> 3ed9a8c (.)
