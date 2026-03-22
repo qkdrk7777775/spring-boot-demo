@@ -2,7 +2,8 @@ name: CI
 on: [push]
 jobs:
   build:
-    runs-on: ubuntu-latest
+    # runs-on: ubuntu-latest
+    runs-on: self-host
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
